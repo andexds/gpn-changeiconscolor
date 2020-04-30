@@ -1,0 +1,7 @@
+{
+  "name": "gpn-changeIconsColor",
+  "id": "837656102596601097",
+  "api": "1.0.0",
+  "main": "src/code.js",
+  "ui": "src/ui.html"
+}

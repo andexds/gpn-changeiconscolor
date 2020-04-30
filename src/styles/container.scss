@@ -1,0 +1,18 @@
+body {
+  background-color: green;
+  color: red;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+}
+
+.side {
+  width: 50wv;
+
+  &_type_default {
+    background-color: purple;
+  }
+}
