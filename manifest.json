@@ -3,5 +3,9 @@
   "id": "738168449509241862",
   "api": "1.0.0",
   "main": "dist/code.js",
-  "ui": "dist/ui.html"
+  "ui": "dist/ui.html",
+  "menu": [
+    {"name": "Choose color...", "command": "open-ui"},
+    {"name": "Do by self", "command": "do-by-self"}
+  ]
 }

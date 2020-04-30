@@ -1,21 +1,32 @@
-figma.showUI(__html__)
-figma.ui.resize(440, 400);
+import { changeColor, changeColorAutomaticaly } from './components/core';
+import showUI from './components/showui';
 
-figma.ui.onmessage = msg => {
-  if (msg.type === 'create-rectangles') {
-    const nodes = []
-
-    for (let i = 0; i < msg.count; i++) {
-      const rect = figma.createRectangle()
-      rect.x = i * 150
-      rect.fills = [{type: 'SOLID', color: {r: 1, g: 0.5, b: 0}}]
-      figma.currentPage.appendChild(rect)
-      nodes.push(rect)
-    }
-
-    figma.currentPage.selection = nodes
-    figma.viewport.scrollAndZoomIntoView(nodes)
+const fillSelection = (msg) => {
+  if (msg.type === 'fill-selection') {
+    // Импортируем глобальный цвет
+    figma.importStyleByKeyAsync(msg.id).then((paint) => {
+      // Красим выделенный объект в рекурсии
+      changeColor(paint);
+    }).catch(() => {
+      figma.notify('Style doesn\'t exist');
+    })
   }
+}
+// Если открыли панель цветов
+if (figma.command === 'open-ui') {
+  showUI();
+  figma.ui.onmessage = msg => {
+    // Если кликнули по цвету
+    fillSelection(msg);
+  }
+// Если выбрали пункт попробовать самостоятельно
+} else if (figma.command === 'do-by-self') {
+  // Пытаемся красить автоматом
+  changeColorAutomaticaly();
 
-  figma.closePlugin()
+  // Если автоматом не вышло, то вызываем снова окошко с UI
+  figma.ui.onmessage = msg => {
+    fillSelection(msg);
+  };
+
 }
