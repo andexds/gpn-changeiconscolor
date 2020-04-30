@@ -18,14 +18,13 @@ module.exports = (env, argv) => ({
       // Converts TypeScript code to JavaScript
       { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/ },
 
-      // Allows you to use "<%= require('./file.svg') %>" in your HTML code to get a data URI
-      { test: /\.(png|jpg|gif|webp|svg|zip)$/, loader: [{ loader: 'url-loader' }] },
-
       // Enables including CSS by doing "import './file.css'" in your TypeScript code
-      {
-        test: /\.s[ac]ss$/i,
+      { test: /\.s[ac]ss$/, 
         use: ["style-loader", "css-loader", "sass-loader"]
       },
+
+      // Allows you to use "<%= require('./file.svg') %>" in your HTML code to get a data URI
+      { test: /\.(png|jpg|gif|webp|svg|zip)$/, loader: [{ loader: 'url-loader' }] },
     ],
   },
 
@@ -34,7 +33,7 @@ module.exports = (env, argv) => ({
 
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'), // Compile into a folder called  "dist"
+    path: path.resolve(__dirname, 'dist'), // Compile into a folder called "dist"
   },
 
   // Tells Webpack to generate "ui.html" and to inline "ui.ts" into it

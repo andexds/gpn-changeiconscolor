@@ -1,7 +1,7 @@
 {
-  "name": "gpn-changeIconsColor",
-  "id": "837656102596601097",
+  "name": "GPN-ChangeIconsColor",
+  "id": "738168449509241862",
   "api": "1.0.0",
-  "main": "src/code.js",
-  "ui": "src/ui.html"
+  "main": "dist/code.js",
+  "ui": "dist/ui.html"
 }

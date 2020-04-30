@@ -1,11 +1,24 @@
-import './styles/container.scss';
+import './ui.scss'
+import defaultColor from './components/defaultColor';
+import darkColor from './components/darkColor';
 
-document.getElementById('create').onclick = () => {
-  const textbox = document.getElementById('count') as HTMLInputElement
-  const count = parseInt(textbox.value, 10)
-  parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
+const listOfDefaultColor = document.querySelector('.list_type-default');
+const listOfDarkColor = document.querySelector('.list_type-dark');
+
+const makeList = (list, {name, id, color}) => {
+  const li = document.createElement('li');
+  li.dataset.id = id;
+  li.innerHTML =`
+  <div class="color" style="background-color: rgb(${Math.round(color.r * 255)}, ${Math.round(color.g * 255)}, ${Math.round(color.b *  255)})"></div>
+  <p>${name}</p>`;
+
+  list.append(li);
 }
 
-document.getElementById('cancel').onclick = () => {
-  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
-}
+defaultColor.forEach((color) => {
+  makeList(listOfDefaultColor, color);
+});
+
+darkColor.forEach((color) => {
+  makeList(listOfDarkColor, color);
+});

@@ -1,5 +1,4 @@
-import './styles/container.scss';
-
+import './ui.css';
 document.getElementById('create').onclick = () => {
     const textbox = document.getElementById('count');
     const count = parseInt(textbox.value, 10);
