@@ -1,16 +1,21 @@
-# Webpack 
+### GPN Change Icon's Color
 
-<img src="../_screenshots/webpack.png" width="400" />
+## Install
+### First step
+```bash
+git clone https://github.com/andexds/gpn-changeiconscolor.git
+cd gpn-changeiconscolor
+npm i && npm build
+```
 
-Creates rectangles. Demonstrates bundling plugin code using Webpack.
+### Second step
+Open Figma application. Go to **Plugins → Development → New Plugin...**
 
-The main plugin code is in `src/code.ts`. The HTML for the UI is in
-`src/ui.html`, while the embedded JavaScript is in `src/ui.ts`.
+### Third step
+Click on **"Click to choose a manifest.json file"** and choose file from gpn-changeiconscolor folder
 
-These are compiled to files in `dist/`, which are what Figma will use to run
-your plugin.
+### For convenience
+Open System Preferences... → Keyboard → Shortcuts → App Shortcuts
+Click on the plus button. Choose Figma in the Application item. Type **Choose color...** or **Do by self** on the menu title item and set own shortcut (I use CMD+SHIFT+R);
 
-To build:
-
-    $ npm install
-    $ npx webpack
+That's all
