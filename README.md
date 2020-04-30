@@ -1,6 +1,6 @@
 ### GPN Change Icon's Color
 
-## Install
+## How it works
 ### First step
 ```bash
 git clone https://github.com/andexds/gpn-changeiconscolor.git
@@ -18,4 +18,4 @@ Click on **"Click to choose a manifest.json file"** and choose file from gpn-cha
 Open System Preferences... → Keyboard → Shortcuts → App Shortcuts
 Click on the plus button. Choose Figma in the Application item. Type **Choose color...** or **Do by self** on the menu title item and set own shortcut (I use CMD+SHIFT+R);
 
-That's all
+That's all. Enjoy 🥰
