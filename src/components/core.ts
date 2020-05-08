@@ -3,7 +3,7 @@ import showUI from './showui';
 // Функция рекурсия, которая пробегает по всем нодам
 const iterOfNode = (child, paint) => {
   // Если нода имеет детей, то запускаем для каждого снова эту функцию
-  if ('children' in child) {
+  if ('children' in child && child.type !== 'BOOLEAN_OPERATION') {
     const children = child.children;
     for (let child of children) {
       iterOfNode(child, paint);
